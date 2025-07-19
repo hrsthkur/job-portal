@@ -1,24 +1,38 @@
-# Logs
-logs
-*.log
+# Node.js
+node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
+# Logs
+logs/
+*.log
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
+# Builds
+dist/
+build/
+
+# Environment & Secrets
+.env
+.env.local
+.env.development
+.env.production
+
+# Clerk (env vars used for keys)
+.clerk/
+
+# Vite or Next or Parcel cache
+.cache/
+*.cache
+.parcel-cache/
+
+# OS files
 .DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+
+# MongoDB dumps
+dump/
