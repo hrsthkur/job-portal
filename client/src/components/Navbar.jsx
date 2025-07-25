@@ -13,15 +13,15 @@ const Navbar = () => {
         <img src={assets.logo} alt="" />
         {
           user
-          ?<div>
-            <Link to={Applications}>Applied jobs</Link>
+          ?<div className='flex items-center gap-3'>
+            <Link to={'/Applications'}>Applied jobs</Link>
             <p>|</p>
             <p>Hi, {user.firstName + " " + user.lastName} </p>
             <UserButton></UserButton>
           </div>
           : <div className='flex gap-4 max-sm:text-xs'>
             <button className='text-gray-600'>Recruiter Login</button>
-            <button onClick={ e => openSignIn()} className='bg-blue-600 text-white px-6 sm:px-9 py-2 rounded-full'>Login</button>
+            <button onClick={ () => openSignIn()} className='bg-blue-600 text-white px-6 sm:px-9 py-2 rounded-full'>Login</button>
         </div>
        
         }
