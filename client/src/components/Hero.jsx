@@ -1,7 +1,27 @@
-import React from 'react'
+import React, { useContext, useRef } from 'react'
 import { assets } from '../assets/assets'
+import { AppContext } from '../context/AppContext'
 
 const Hero = () => {
+        
+    const titleRef = useRef(null)
+    const locationRef = useRef(null)
+
+    const {setSearchFilter, setIsSearched} = useContext(AppContext)
+
+    const onSearch = () => {
+         setSearchFilter({
+            title: titleRef.current.value ,
+            location: locationRef.current.value
+       
+            },
+             setIsSearched(true) 
+        )
+        
+    }
+
+
+
   return (
     <div className='container 2xl:px-20 mx-auto my-10'>
         <div className='bg-gradient-to-r from-purple-800 to-purple-950 text-white py-16 text-center mx-2 rounded-xl'>
@@ -12,15 +32,17 @@ const Hero = () => {
                     <img className='h-4 sm:h-5' src={assets.search_icon} alt="" />
                     <input type="text" 
                     placeholder='Search For Jobs'
+                    ref={titleRef}
                     className='max-sm:text-xs p-2 rounded outline-none w-full' />
                 </div>
                  <div className='flex items-center '>
                     <img className='h-4 sm:h-5' src={assets.location_icon} alt="" />
                     <input type="text" 
                     placeholder='Location'
+                    ref={locationRef}
                     className='max-sm:text-xs p-2 rounded outline-none w-full' />
                 </div>
-                <button className='px-6 py-2 bg-blue-600 text-white rounded m-1'>Search</button>
+                <button onClick={onSearch} className='px-6 py-2 bg-blue-600 text-white rounded m-1'>Search</button>
             </div>
         </div>
         <div className='border border-gray-300 shadow-md mx-2 mt-5 p-6 rounded-md flex'>
