@@ -28,7 +28,7 @@ import User from "../models/User.js";
 
                     const userData = {
                         _id:data.id,
-                        email:data.email_addresses[0].email_address,
+                        email: data.email_addresses?.[0]?.email_address || null,
                         name: data.first_name + " " + data.last_name,
                         resume: ''
                     }
@@ -42,7 +42,7 @@ import User from "../models/User.js";
                 case 'user.updated':{
 
                      const userData = {
-                        email:data.email_addresses[0].email_address,
+                        email: data.email_addresses?.[0]?.email_address || null,
                         name: data.first_name + " " + data.last_name,
                         
                     }
@@ -71,8 +71,8 @@ import User from "../models/User.js";
 
         } catch (error) {
 
-            console.log(error.message);
-            res.json({success:false, message: 'Webhooks error'})
+            console.error("Webhook error:", error);
+             res.status(400).json({ success: false, message: error.message });
             
             
         }
