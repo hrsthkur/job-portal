@@ -32,7 +32,6 @@ import User from "../models/User.js";
                         name: data.first_name + " " + data.last_name,
                         resume: ''
                     }
-
                     await User.create(userData)
                     res.json({})
                     break;
