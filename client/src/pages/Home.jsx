@@ -1,19 +1,17 @@
-import React from 'react'
 import Navbar from '../components/Navbar'
 import Hero from '../components/Hero'
 import JobListing from '../components/JobListing'
-import Appdownload from '../components/Appdownload'
+import AppDownload from '../components/AppDownload'
 import Footer from '../components/Footer'
 
 const Home = () => {
   return (
     <div>
-      <Navbar/>
+      <Navbar />
       <Hero />
       <JobListing />
-      <Appdownload />
-      <Footer></Footer>
-     
+      <AppDownload />
+      <Footer />
     </div>
   )
 }
